@@ -5,8 +5,8 @@
 
 ### cto-over-indexes-scalability
 - status: proposed
-- pr: https://github.com/nickgiro/claude-skills/pull/2
-- previous-pr: https://github.com/nickgiro/claude-skills/pull/1 (rejected 2026-03-19)
+- pr: https://github.com/nickgiro/claude-skills/pull/3
+- previous-prs: #1 (rejected 2026-03-19), #2 (rejected 2026-03-19)
 - occurrences:
   - 2026-03-19 | feedback_test_cto_scalability.md | "CTO reviewer focuses too much on scalability — it dominates the review even for small features where scale isn't a concern"
   - 2026-03-19 | feedback_test_cto_scalability_2.md | "CTO reviewer's scalability concerns dominate the review output even for internal dashboards"
@@ -14,3 +14,6 @@
   - 2026-03-19 | feedback_test_cto_scalability_4.md | "CTO reviewer asked about horizontal scaling strategy for a prototype that will have 10 users"
   - 2026-03-19 | feedback_test_cto_scalability_5.md | "Again got a REVISE from the CTO reviewer purely on scalability for a simple config page"
   - 2026-03-19 | feedback_test_cto_scalability_6.md | "CTO reviewer flagged 'will this hold up at 100x' on an internal admin tool with 5 concurrent users"
+  - 2026-03-19 | feedback_test_cto_scalability_7.md | "CTO reviewer gave a REVISE on scalability for a weekend hackathon prototype"
+  - 2026-03-19 | feedback_test_cto_scalability_8.md | "The 'will this hold up at 100x' question is not useful when reviewing a feature for a team of 3"
+  - 2026-03-19 | feedback_test_cto_scalability_9.md | "Third time this month: CTO reviewer flagged scalability on a low-stakes internal tool"
