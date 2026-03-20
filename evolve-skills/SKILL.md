@@ -156,14 +156,9 @@ For each theme with status `active` and 3+ occurrences:
    )"
    ```
 
-7. **Request review** (triggers email notification):
-   ```bash
-   gh pr edit --repo nickgiro/claude-skills --add-reviewer nickgiro --add-assignee nickgiro
-   ```
+7. **Update signal log**: Set status to `proposed`, add PR URL. (Note: a GitHub Action automatically assigns and requests review from nickgiro — no manual step needed.)
 
-8. **Update signal log**: Set status to `proposed`, add PR URL.
-
-9. **Return to main**:
+8. **Return to main**:
    ```bash
    git checkout main
    ```
