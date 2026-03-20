@@ -158,7 +158,7 @@ For each theme with status `active` and 3+ occurrences:
 
 7. **Request review** (triggers email notification):
    ```bash
-   gh pr edit --repo nickgiro/claude-skills --add-reviewer nickgiro
+   gh pr edit --repo nickgiro/claude-skills --add-reviewer nickgiro --add-assignee nickgiro
    ```
 
 8. **Update signal log**: Set status to `proposed`, add PR URL.
