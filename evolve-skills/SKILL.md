@@ -156,9 +156,14 @@ For each theme with status `active` and 3+ occurrences:
    )"
    ```
 
-7. **Update signal log**: Set status to `proposed`, add PR URL.
+7. **Request review** (triggers email notification):
+   ```bash
+   gh pr edit --repo nickgiro/claude-skills --add-reviewer nickgiro
+   ```
 
-8. **Return to main**:
+8. **Update signal log**: Set status to `proposed`, add PR URL.
+
+9. **Return to main**:
    ```bash
    git checkout main
    ```
