@@ -19,10 +19,17 @@
   - 2026-03-19 | feedback_test_cto_scalability_8.md | "The 'will this hold up at 100x' question is not useful when reviewing a feature for a team of 3"
   - 2026-03-19 | feedback_test_cto_scalability_9.md | "Third time this month: CTO reviewer flagged scalability on a low-stakes internal tool"
 
+### clarity-reviewer-write-for-10yo
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/7
+- occurrences:
+  - 2026-04-28 | feedback_clarity_plain.md | "clarity reviewer should avoid abstracted/industry terms (usability, friction, design system) and use language a 10-year-old would understand"
+
 ## [UNMATCHED]
 
 ### en-dash-over-em-dash
-- status: active
+- status: resolved
+- resolution: 2026-04-28 | added to global ~/.claude/CLAUDE.md as "Output formatting" rule (no PR — handled outside this repo)
 - occurrences:
   - 2026-03-27 | feedback_en_dash.md | "Use en dash instead of em dash in all text output – general formatting preference"
 
