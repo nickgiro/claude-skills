@@ -101,40 +101,63 @@ gh pr list --repo nickgiro/claude-skills --state open --json number,title,headRe
 
 Build a set of branch names that already have open PRs. Do NOT create duplicate PRs.
 
-### Step 7 — Open PRs for threshold themes
+### Step 7 — Rank candidates by importance
 
-For each theme with status `active` and 3+ occurrences:
+Build the candidate pool from the signal log:
 
-1. **Check for rejection history**: If the theme was previously `rejected`, count only occurrences dated AFTER the `rejected-date`. Need 3+ post-rejection signals to re-propose.
+- Include all themes with status `active` (any number of occurrences — no minimum)
+- Include `[UNMATCHED]` themes (these become proposed new skills)
+- Exclude themes with status `proposed` (open PR already exists)
+- Exclude `rejected` themes UNLESS they have at least 1 occurrence dated AFTER `rejected-date`
 
-2. **Check for duplicates**: If a branch `evolve/[skill-name]/[theme-slug]` already has an open PR, skip.
+Rank each candidate by importance using these criteria (apply judgment, not a strict formula):
 
-3. **Create branch and propose change**:
+- **Severity** — feedback correcting wrong behavior > feedback suggesting polish
+- **Specificity** — concrete corrections with clear examples > vague preferences
+- **Convergence** — multiple memory files reporting the same theme > single source
+- **Recency** — recent occurrences > old ones (older signals may be stale)
+- **Skill weight** — feedback about frequently-used skills > rarely-used skills (use signal-log volume per skill as a proxy)
+
+Pick **up to 3** candidates as the week's proposals.
+
+**Defensibility bar:** only include a candidate if you can write a clear, specific rationale for why this change should land. If the next-best candidate is weak, stop — produce fewer than 3 proposals (or zero in a thin week). Do NOT pad to 3 for the sake of it.
+
+### Step 8 — Open draft PRs for selected candidates
+
+For each ranked candidate from Step 7 (up to 3):
+
+1. **Check for duplicates**: If a branch `evolve/[skill-name]/[theme-slug]` already has an open PR, skip.
+
+2. **Create branch**:
    ```bash
    cd $SKILLS_REPO
    git checkout main
    git checkout -b evolve/[skill-name]/[theme-slug]
    ```
 
-4. **Edit the target SKILL.md**: Read the current skill, analyze the feedback pattern, and make a targeted edit that addresses the concern. The edit should be minimal and surgical — change only what the feedback demands.
+3. **Apply the change**:
+   - **Matched theme**: read the target `SKILL.md`, make a minimal surgical edit addressing the feedback. Change only what the feedback demands.
+   - **`[UNMATCHED]` theme**: draft a brand-new `SKILL.md` for a new skill directory. Infer what the skill should do, when it triggers, and what behavior to encode.
 
-5. **Commit and push**:
+4. **Commit and push**:
    ```bash
    git add [skill-name]/SKILL.md
    git commit -m "evolve: [skill-name] — [theme description]"
    git push -u origin evolve/[skill-name]/[theme-slug]
    ```
 
-6. **Open PR**:
+5. **Open DRAFT PR** (note `--draft` flag):
    ```bash
-   gh pr create --repo nickgiro/claude-skills \
+   gh pr create --repo nickgiro/claude-skills --draft \
      --title "evolve: [skill-name] — [theme description]" \
      --body "$(cat <<'EOF'
-   ## Proposed Skill Evolution
+   ## Why this change
 
-   **Skill:** [skill-name]
-   **Theme:** [theme-slug]
-   **Signal count:** [N]
+   [One paragraph: what feedback pattern led to this proposal and why this specific edit addresses it. Be concrete — name the behavior being corrected and the user-visible improvement.]
+
+   ## What changed
+
+   [Describe the specific edit made to SKILL.md, or for a new skill: what the skill does and when it triggers]
 
    ## Evidence
 
@@ -142,38 +165,26 @@ For each theme with status `active` and 3+ occurrences:
    |------|--------|---------|
    | ... | ... | ... |
 
-   ## Rationale
+   ## Importance signals
 
-   [Explain what the feedback pattern indicates and why this change addresses it]
-
-   ## What changed
-
-   [Describe the specific edit made to SKILL.md]
+   - Severity: [low/medium/high — and why]
+   - Specificity: [low/medium/high]
+   - Convergence: [N sources]
+   - Recency: [most recent occurrence date]
+   - Rank this week: [1, 2, or 3 of N proposals]
 
    ---
-   Proposed by `evolve-skills` | [N] signals collected
+   Proposed by `evolve-skills` | Draft — promote to "Ready for review" or close to reject
    EOF
    )"
    ```
 
-7. **Update signal log**: Set status to `proposed`, add PR URL. (Note: a GitHub Action automatically assigns and requests review from nickgiro — no manual step needed.)
+6. **Update signal log**: Set status to `proposed`, add PR URL. (The notify-pr.yml GitHub Action will assign and @-mention nickgiro automatically.)
 
-8. **Return to main**:
+7. **Return to main**:
    ```bash
    git checkout main
    ```
-
-### Step 8 — Handle unmatched themes
-
-For `[UNMATCHED]` themes with 3+ occurrences:
-
-1. Draft a new SKILL.md based on the feedback pattern. Infer:
-   - What the skill should do
-   - When it should trigger
-   - What behavior to encode
-2. Create a new directory for it in the repo
-3. Follow the same branch/commit/PR workflow as Step 7
-4. PR body should explain what feedback drove the new skill proposal
 
 ### Step 9 — Detect resolved themes
 
@@ -215,9 +226,11 @@ Print a summary to the terminal:
 ## Key Rules
 
 - **Never push directly to main** except for signal log updates
-- **One PR per theme per skill** — no batching multiple themes
-- **3+ signals to propose** — don't react to one-off feedback
-- **Rejected themes need 3 NEW signals** (post-rejection) before re-proposing
+- **One PR per proposed change** — no batching multiple themes
+- **Up to 3 proposals per run** — global ranking by importance, not per-skill
+- **Defensibility bar** — produce fewer than 3 (or zero) if remaining candidates are weak; never pad
+- **All evolve PRs open as drafts** — user promotes to "Ready" or closes to reject
+- **Rejected themes need at least 1 NEW signal** (post-rejection) to re-enter the candidate pool
 - **Never delete signal log entries** — they're an audit trail
 - **Deduplicate by source file** — same feedback file never counted twice
 - **Check for open PRs before creating** — no duplicates
