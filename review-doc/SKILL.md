@@ -82,6 +82,7 @@ Review for:
 - **Plain language over jargon** — Replace abstract product/design/engineering terms with what literally happens or what people literally do. "Usability issues" → "parts that confuse people." "Friction" → "places where people get stuck." "Design system" → "the set of colors, buttons, and layouts we reuse." "Cognitive load" → "how much the user has to think." "Workflows" → "the steps someone takes to get something done." "Scalable" → "works the same when many more people use it."
 - **No insider terms** — Strip industry shorthand that assumes context the reader may not have. If you can name the concept in concrete words, do.
 - **Concrete over abstract** — Ground each claim in a specific example. Show what happens, not just the category it falls into.
+- **Clear, concise, and falsifiable** — Each statement should be specific enough that someone could disagree with it or test it. Replace vague qualifiers ("better", "improves", "more scalable") with concrete, measurable claims ("loads in under 200ms", "removes the duplicate confirmation step"). Statements that can't be proven wrong don't belong in a finalized doc.
 - **One idea per sentence** — Long sentences with multiple clauses obscure meaning. Break them up.
 - **Active voice** — "We will ship X" beats "X will be shipped."
 - **Define unavoidable terms** — When a domain term truly has no plain equivalent, define it on first use in plain language.
