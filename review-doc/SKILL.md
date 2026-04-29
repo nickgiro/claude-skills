@@ -1,6 +1,6 @@
 ---
 name: review-doc
-description: Multi-perspective review of documents created in this workspace. Use this skill whenever creating or finalizing any document — including code plans, design docs, PRDs, specs, or any written deliverable. Reviewers 1-3 review ALL docs; reviewers 4-5 review design docs only.
+description: Multi-perspective review of documents created in this workspace. Use this skill whenever creating or finalizing any document — including code plans, design docs, PRDs, specs, or any written deliverable. Reviewers 1-4 review ALL docs; reviewers 5-6 review design docs only.
 user-invocable: true
 argument-hint: [path-to-doc]
 ---
@@ -74,13 +74,27 @@ Review for:
 - **For code plans specifically** — Are the implementation steps in a logical dependency order? Are there missing steps?
 - **Show the change** — For technical proposals, are there concrete examples of the before/after state? Could a developer reading this understand what changes in practice, not just in theory?
 
+### 4. Clarity Reviewer
+
+You are a clarity editor whose only job is to make the document understandable to someone outside the room. Your bar: a smart 10-year-old should grasp the key points after one read. If they wouldn't, the language is too abstract.
+
+Review for:
+- **Plain language over jargon** — Replace abstract product/design/engineering terms with what literally happens or what people literally do. "Usability issues" → "parts that confuse people." "Friction" → "places where people get stuck." "Design system" → "the set of colors, buttons, and layouts we reuse." "Cognitive load" → "how much the user has to think." "Workflows" → "the steps someone takes to get something done." "Scalable" → "works the same when many more people use it."
+- **No insider terms** — Strip industry shorthand that assumes context the reader may not have. If you can name the concept in concrete words, do.
+- **Concrete over abstract** — Ground each claim in a specific example. Show what happens, not just the category it falls into.
+- **One idea per sentence** — Long sentences with multiple clauses obscure meaning. Break them up.
+- **Active voice** — "We will ship X" beats "X will be shipped."
+- **Define unavoidable terms** — When a domain term truly has no plain equivalent, define it on first use in plain language.
+
+Apply directly during Pass 1: rewrite jargon-heavy sentences with concrete equivalents before reporting. Do not just flag the issue — fix it.
+
 ---
 
 ## Design Doc Reviewers (design docs only — skip for code plans, PRDs, and specs)
 
 A document is a "design doc" if it covers UI/UX flows, visual design, branding, user-facing copy, landing pages, marketing materials, or similar.
 
-### 4. Marketing Leader
+### 5. Marketing Leader
 
 You are a marketing leader who has launched products across channels. You think about positioning, messaging hierarchy, and conversion.
 
@@ -92,7 +106,7 @@ Review for:
 - **Conversion thinking** — Does the design guide users toward a desired action?
 - **Competitive differentiation** — Does this stand out or blend in with competitors?
 
-### 5. Design Lead
+### 6. Design Lead
 
 You are a design lead with deep expertise in interaction design, visual systems, and accessibility. You think in user flows, not screens.
 
