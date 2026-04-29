@@ -1,4 +1,3 @@
-$ErrorActionPreference = "Stop"
 $skillsDir = "$env:USERPROFILE\.claude\skills"
 $logFile   = "$env:USERPROFILE\.claude\skills-sync.log"
 
@@ -6,24 +5,23 @@ function Log($msg) {
     "$([DateTime]::Now.ToString('yyyy-MM-dd HH:mm:ss'))  $msg" | Out-File -FilePath $logFile -Append -Encoding utf8
 }
 
-try {
-    Set-Location $skillsDir
-    Log "Starting weekly sync"
+Set-Location $skillsDir
+Log "Starting weekly sync"
 
-    git add -A 2>&1 | Out-Null
+git add -A | Out-Null
+if ($LASTEXITCODE -ne 0) { Log "git add failed (exit $LASTEXITCODE)"; exit 1 }
 
-    $status = git status --porcelain
-    if ([string]::IsNullOrWhiteSpace($status)) {
-        Log "No local changes — nothing to sync"
-        exit 0
-    }
-
-    $stamp = [DateTime]::Now.ToString('yyyy-MM-dd HH:mm')
-    git commit -m "Weekly sync $stamp" 2>&1 | ForEach-Object { Log $_ }
-    git push origin main 2>&1 | ForEach-Object { Log $_ }
-    Log "Sync complete"
+$status = git status --porcelain
+if ([string]::IsNullOrWhiteSpace($status)) {
+    Log "No local changes - nothing to sync"
+    exit 0
 }
-catch {
-    Log "ERROR: $_"
-    exit 1
-}
+
+$stamp = [DateTime]::Now.ToString('yyyy-MM-dd HH:mm')
+git commit -m "Weekly sync $stamp" | Out-Null
+if ($LASTEXITCODE -ne 0) { Log "git commit failed (exit $LASTEXITCODE)"; exit 1 }
+
+git push origin main | Out-Null
+if ($LASTEXITCODE -ne 0) { Log "git push failed (exit $LASTEXITCODE)"; exit 1 }
+
+Log "Sync complete"
