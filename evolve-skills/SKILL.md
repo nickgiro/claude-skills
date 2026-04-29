@@ -41,7 +41,9 @@ If the file doesn't exist, start with an empty state.
 
 ### Step 3 — Discover skills
 
-List all directories in `$SKILLS_REPO` that contain a `SKILL.md` file (excluding `evolve-skills` itself). For each, read the SKILL.md to understand its name, description, and scope. Build a skill index:
+List all directories in `$SKILLS_REPO` that contain a `SKILL.md` file. For each, read the SKILL.md to understand its name, description, and scope. Build a skill index:
+
+**Note:** `evolve-skills` IS included in the index — it can propose changes to itself, but with a stricter source-count guardrail (see Step 7).
 
 ```
 skill_name -> { directory, description, key_concepts[] }
@@ -109,6 +111,7 @@ Build the candidate pool from the signal log:
 - Include `[UNMATCHED]` themes (these become proposed new skills)
 - Exclude themes with status `proposed` (open PR already exists)
 - Exclude `rejected` themes UNLESS they have at least 1 occurrence dated AFTER `rejected-date`
+- **Self-edit guardrail:** themes targeting `evolve-skills` itself require at least **2 distinct source memory files** (count unique source filenames in the occurrences). One opinion isn't enough to self-modify. Hold a single-source self-edit theme until a second independent signal lands.
 
 Rank each candidate by importance using these criteria (apply judgment, not a strict formula):
 
@@ -231,6 +234,7 @@ Print a summary to the terminal:
 - **Defensibility bar** — produce fewer than 3 (or zero) if remaining candidates are weak; never pad
 - **All evolve PRs open as drafts** — user promotes to "Ready" or closes to reject
 - **Rejected themes need at least 1 NEW signal** (post-rejection) to re-enter the candidate pool
+- **Self-edits require 2+ distinct sources** — evolve-skills can propose changes to itself, but only when feedback comes from at least 2 different memory files (one source isn't enough)
 - **Never delete signal log entries** — they're an audit trail
 - **Deduplicate by source file** — same feedback file never counted twice
 - **Check for open PRs before creating** — no duplicates
