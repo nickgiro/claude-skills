@@ -18,7 +18,10 @@ This skill scans feedback memories, matches them to skills, and opens GitHub PRs
 ```
 SKILLS_REPO=~/claude-skills
 SIGNAL_LOG=$SKILLS_REPO/evolve-skills/signal-log.md
-MEMORY_ROOT=~/.claude/projects
+MEMORY_ROOTS=(
+  ~/.claude/projects                               # canonical local
+  /c/Users/nickg/OneDrive/.claude/projects         # OneDrive-synced (memories from other machines / earlier sessions)
+)
 TARGET_SKILL=$ARGUMENTS   # empty = all skills
 ```
 
@@ -53,12 +56,19 @@ Where `key_concepts` are extracted from the skill's content — role names, feat
 
 ### Step 4 — Collect feedback signals
 
-Scan all feedback memory files across all projects:
-```
-~/.claude/projects/*/memory/*.md
+Scan all feedback memory files across **every root in `$MEMORY_ROOTS`**:
+
+```bash
+for ROOT in "${MEMORY_ROOTS[@]}"; do
+  find "$ROOT" -path "*/memory/*.md" -type f
+done
 ```
 
-For each file:
+This includes both the canonical `~/.claude/projects` (where new memories are written by auto-memory) and any OneDrive-synced or other parallel locations (where memories from other machines or earlier sessions may live). Skipping these strands genuine feedback signal.
+
+**Cross-root deduplication:** when the same filename appears in multiple roots (e.g., `feedback_en_dash.md` synced across machines), process it **once** using the local-first version – prefer `~/.claude/projects`, fall back to other roots in listed order. Filename is the dedup key, not full path.
+
+For each unique file:
 1. Read its frontmatter — only process files with `type: feedback`
 2. Check if this file is already logged in the signal log (by source filename). If so, skip.
 3. Read the content and match it to a target skill using this priority:
