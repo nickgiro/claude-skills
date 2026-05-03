@@ -20,10 +20,17 @@
   - 2026-03-19 | feedback_test_cto_scalability_9.md | "Third time this month: CTO reviewer flagged scalability on a low-stakes internal tool"
 
 ### clarity-reviewer-write-for-10yo
-- status: proposed
+- status: resolved
 - pr: https://github.com/nickgiro/claude-skills/pull/7
+- resolution: 2026-04-29 | merged via PR #7
 - occurrences:
   - 2026-04-28 | feedback_clarity_plain.md | "clarity reviewer should avoid abstracted/industry terms (usability, friction, design system) and use language a 10-year-old would understand"
+
+### output-review-as-separate-file
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/8
+- occurrences:
+  - 2026-05-03 | feedback_strategy_review_output.md | "Don't directly amend documents during review – output feedback as a separate file that Nick can review and apply himself. Directly editing removes the learning opportunity."
 
 ## [UNMATCHED]
 
@@ -34,6 +41,25 @@
   - 2026-03-27 | feedback_en_dash.md | "Use en dash instead of em dash in all text output – general formatting preference"
 
 ### definitive-ticket-specs
-- status: active
+- status: resolved
+- resolution: 2026-04-28 | addressed by creation of write-tickets skill (commit e5f47ac)
 - occurrences:
   - 2026-03-27 | feedback_ticket_writing.md | "Tickets must have clear, actionable specs – no hedging language like 'consider' or 'maybe'"
+
+### never-read-env-files-without-permission
+- status: active
+- note: candidate for global ~/.claude/CLAUDE.md addition (engineering safety rule, not skill-specific)
+- occurrences:
+  - 2026-05-03 | feedback_env_files.md | "Never read .env files without explicit permission – they contain secrets"
+
+### practical-objections-in-strategic-conversations
+- status: active
+- note: candidate for global ~/.claude/CLAUDE.md addition (general behavior, not skill-specific)
+- occurrences:
+  - 2026-05-03 | feedback_dont_match_register.md | "Don't let philosophical/strategic register filter out practical objections like cost, feasibility, or data gaps – those are often the most important"
+
+### search-before-fabricating-empirical-claims
+- status: active
+- note: candidate for global ~/.claude/CLAUDE.md addition (general behavior, not skill-specific)
+- occurrences:
+  - 2026-05-03 | feedback_verify_before_fabricate.md | "Never invent estimates/numbers when a web search could ground them – fabricated numbers passed the smell test but were baseless"
