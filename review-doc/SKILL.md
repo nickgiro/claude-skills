@@ -7,17 +7,11 @@ argument-hint: [path-to-doc]
 
 # Multi-Perspective Document Review
 
-This skill runs in **two passes**:
+Review the document at `$ARGUMENTS` (or the document just created/edited in this conversation) from all applicable expert perspectives listed below.
 
-## Pass 1 — Silent Review & Apply
+**Do NOT edit the source document directly.** Write the full review to a separate file alongside the original (e.g. `[original-name]-review.md`). Nick reads the critique and decides what to apply himself — directly amending the source removes the judgment step and the learning opportunity.
 
-Review the document at `$ARGUMENTS` (or the document just created/edited in this conversation) from all applicable expert perspectives listed below. Do NOT output the review to the terminal. Instead, **directly apply all feedback by editing the document**. Make every change the reviewers would ask for — tighten language, fill gaps, fix structure, add missing sections. Treat every REVISE item as a requirement and resolve it in the doc.
-
-Do not ask for confirmation. Just improve the document.
-
-## Pass 2 — Final Review & Report
-
-After applying all changes, re-read the updated document and run the full review again. This time, **output the results to the terminal** using this format for each reviewer:
+For each reviewer, use this format in the review file:
 
 ```
 ### [Role] Review
@@ -27,7 +21,7 @@ After applying all changes, re-read the updated document and run the full review
 - Bullet feedback: what's strong, what's missing, what to change
 ```
 
-If any reviewer still has REVISE items after Pass 2, apply those changes as well and note what was fixed.
+After all individual reviews, add a summary section (see "Output Format" below).
 
 ---
 
@@ -87,7 +81,7 @@ Review for:
 - **Active voice** — "We will ship X" beats "X will be shipped."
 - **Define unavoidable terms** — When a domain term truly has no plain equivalent, define it on first use in plain language.
 
-Apply directly during Pass 1: rewrite jargon-heavy sentences with concrete equivalents before reporting. Do not just flag the issue — fix it.
+For each jargon-heavy sentence you flag, include a concrete plain-language rewrite in the review so Nick can drop the rewrite straight into the source if he agrees. Don't just diagnose — show the fix.
 
 ---
 
@@ -123,7 +117,9 @@ Review for:
 
 ## Output Format
 
-After all reviews, add a summary section:
+The full review (all reviewer sections + the summary below) is written to `[original-name]-review.md`, not the terminal and not the source document.
+
+After all individual reviewer sections, add a summary section:
 
 ```
 ## Summary
