@@ -27,10 +27,30 @@
   - 2026-04-28 | feedback_clarity_plain.md | "clarity reviewer should avoid abstracted/industry terms (usability, friction, design system) and use language a 10-year-old would understand"
 
 ### output-review-as-separate-file
-- status: proposed
+- status: rejected
 - pr: https://github.com/nickgiro/claude-skills/pull/8
+- rejected-date: 2026-05-04
 - occurrences:
   - 2026-05-03 | feedback_strategy_review_output.md | "Don't directly amend documents during review – output feedback as a separate file that Nick can review and apply himself. Directly editing removes the learning opportunity."
+
+## review-strategy
+
+### scope-guard-product-planning-docs
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/9
+- occurrences:
+  - 2026-05-17 | feedback_constraints_to_product_work.md | "When Nick shares a doc that lists user constraints/conditions for value, do NOT apply the review-strategy skill or critique it as a strategy doc. Treat it as product-planning input."
+
+### conditions-vs-hypotheses-distinction
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/10
+- occurrences:
+  - 2026-05-17 | feedback_conditions_vs_hypotheses.md | "When reviewing docs, distinguish conditions of success from falsifiable hypotheses. Don't critique conditions for being 'unfalsifiable' – that's a category error."
+
+### push-for-product-side-mirror
+- status: active
+- occurrences:
+  - 2026-05-17 | feedback_user_side_vs_product_side_conditions.md | "When a doc lists user-side conditions ('users derive value when they X'), push for the product-side mirror ('product makes X likely by Y') – that's where the team's design work and load-bearing risk lives."
 
 ## [UNMATCHED]
 
@@ -63,3 +83,13 @@
 - note: candidate for global ~/.claude/CLAUDE.md addition (general behavior, not skill-specific)
 - occurrences:
   - 2026-05-03 | feedback_verify_before_fabricate.md | "Never invent estimates/numbers when a web search could ground them – fabricated numbers passed the smell test but were baseless"
+
+### problem-discovery-skill
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/11
+- note: candidate for NEW skill capturing problem-discovery discipline (4 converging sources)
+- occurrences:
+  - 2026-05-17 | feedback_problem_discovery.md | "Stay strictly in problem-space during business-problem hunting – don't drift into solutions, technical approaches, or product wedges until explicitly signaled."
+  - 2026-05-17 | feedback_structural_blockers_first.md | "Ask about structural blockers (regulators, dominant incumbents, mandatory systems) in the first 1-2 turns before going deep on pain magnitude or buyer profile."
+  - 2026-05-17 | feedback_check_anchor_vs_descriptor.md | "When user says 'an agency does X', confirm the actual anchor's size, sub-vertical, stack, and relationship before building TAM or evidence."
+  - 2026-05-17 | feedback_solution_in_market_problem_discovery.md | "Solution shipped + fuzzy problem = parallel observational inward + hypothesis-driven outward streams. Don't interrogate launch users on why."
