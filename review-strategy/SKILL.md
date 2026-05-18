@@ -9,6 +9,16 @@ argument-hint: [path-to-doc]
 
 This skill reviews strategy documents from three senior product strategy perspectives. It is designed to sharpen structural thinking – the reviewers are looking for whether the analysis identifies real structure, not just describes a business.
 
+## Scope guard — read before invoking
+
+This skill is for docs that **argue a strategic position**: market structure, competitive bets, positioning, structural teardowns. Before running, check what shape the doc is in. If it is one of the following, do NOT run this skill – respond with the alternative instead:
+
+- **Product-planning input** (e.g. "users derive value when they X, Y, Z" with an implicit ask of "what should we build?"). The author is past strategy and into execution planning. Translate each listed condition into product work (surface/system that satisfies it, major UX forks, P0 vs. downstream), cross-cutting work where conditions couple, and a sequencing recommendation. Push toward 1–2 concrete near-term decisions, not a strategy critique.
+- **Pure constraint/condition lists** with no positioning argument. Same handling as above.
+- **Bug reports, PRDs, specs, code plans**. Use `review-doc` instead.
+
+The signal: if the doc doesn't take a position someone could disagree with on strategic grounds, this skill is the wrong tool. Critiquing product-planning input against the structural strategy framework gets rejected (and rightly so) because it answers a question the author isn't asking.
+
 ## How it works
 
 1. Read the document at `$ARGUMENTS` (or the document just created/edited in this conversation)
