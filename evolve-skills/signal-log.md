@@ -48,7 +48,8 @@
   - 2026-05-17 | feedback_conditions_vs_hypotheses.md | "When reviewing docs, distinguish conditions of success from falsifiable hypotheses. Don't critique conditions for being 'unfalsifiable' – that's a category error."
 
 ### push-for-product-side-mirror
-- status: active
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/12
 - occurrences:
   - 2026-05-17 | feedback_user_side_vs_product_side_conditions.md | "When a doc lists user-side conditions ('users derive value when they X'), push for the product-side mirror ('product makes X likely by Y') – that's where the team's design work and load-bearing risk lives."
 
