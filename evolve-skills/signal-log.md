@@ -33,6 +33,12 @@
 - occurrences:
   - 2026-05-03 | feedback_strategy_review_output.md | "Don't directly amend documents during review – output feedback as a separate file that Nick can review and apply himself. Directly editing removes the learning opportunity."
 
+### confirm-audience-before-review
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/13
+- occurrences:
+  - 2026-06-22 | feedback_confirm_doc_audience.md | "When asked to review a document, establish or confirm the intended audience before shaping the critique. Do not assume it. The same document gets a different review for a compliance team vs. a builder vs. an exec."
+
 ## review-strategy
 
 ### scope-guard-product-planning-docs
@@ -52,6 +58,12 @@
 - pr: https://github.com/nickgiro/claude-skills/pull/12
 - occurrences:
   - 2026-05-17 | feedback_user_side_vs_product_side_conditions.md | "When a doc lists user-side conditions ('users derive value when they X'), push for the product-side mirror ('product makes X likely by Y') – that's where the team's design work and load-bearing risk lives."
+
+### zero-to-one-judge-intuition-not-data
+- status: active
+- note: HELD this run — review-strategy already has 3 open, unactioned PRs (#9, #10, #12) from 2026-05-17. Adding a 4th closely-related PR (this mirrors conditions-vs-hypotheses) onto an unreviewed queue is low-value noise. Propose once the existing review-strategy queue clears or a 2nd converging source lands.
+- occurrences:
+  - 2026-06-22 | feedback_zero_to_one_intuition_not_data.md | "On 0-1 product work, don't demand data/evidence for problem statements — judge whether the intuition is explicit, ownable, and falsifiable-after-launch. Drop critiques that demand frequency/prevalence/evidence."
 
 ## [UNMATCHED]
 
