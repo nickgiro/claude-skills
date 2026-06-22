@@ -7,7 +7,16 @@ argument-hint: [path-to-doc]
 
 # Multi-Perspective Document Review
 
-This skill runs in **two passes**:
+This skill runs in **two passes**, preceded by a quick audience check.
+
+## Step 0 — Establish the audience
+
+Before reviewing, establish **who the document is for**. Do not assume it. The same document earns a different review for a compliance team vs. a builder (founder/engineer) vs. an exec — audience determines what counts as a strength, a gap, or noise.
+
+- If the intended reader is stated in the doc or the conversation, use it.
+- If not, infer it and **state the assumption in one line up front** (e.g. "Reviewing this as a build spec for the founder + engineer") so it can be corrected cheaply before the review shapes around the wrong reader.
+
+Carry the established audience into every reviewer below: weight each perspective's concerns by what that specific reader needs (e.g. a builder needs buildability, unambiguous state machines, and defined terms more than legal framing).
 
 ## Pass 1 — Silent Review & Apply
 
