@@ -65,7 +65,22 @@
 - occurrences:
   - 2026-06-22 | feedback_zero_to_one_intuition_not_data.md | "On 0-1 product work, don't demand data/evidence for problem statements — judge whether the intuition is explicit, ownable, and falsifiable-after-launch. Drop critiques that demand frequency/prevalence/evidence."
 
+## week-report
+
+### outcome-focused-not-output-focused
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/14
+- occurrences:
+  - 2026-07-12 | outcome-focused-resume-writing.md | "Nick pushed back on output-framed bullets ('shipped X') and asked for outcome framing – open each bullet with the state change, then the mechanism; never promote targets to results. Applies to resumes, LinkedIn, week reports, self-review material."
+
 ## [UNMATCHED]
+
+### prd-requests-as-problem-framing
+- status: proposed
+- pr: https://github.com/nickgiro/claude-skills/pull/15
+- note: proposed as NEW skill `frame-problem` – feedback prescribed the exact doc structure
+- occurrences:
+  - 2026-07-12 | prd-as-problem-framing.md | "When a doc request says 'frame the problem' or is pre-discovery – even if 'PRD' is used – structure as context, problem statement, why now, what we know, what to discover, success of framing. No FRs, no user stories, no scope sections."
 
 ### en-dash-over-em-dash
 - status: resolved
