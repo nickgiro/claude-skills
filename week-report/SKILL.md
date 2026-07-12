@@ -86,7 +86,9 @@ Rules for the Slack message:
 
 1. **Executive summary is 2–4 bullets max.** These are the things a stakeholder remembers. Everything else goes in Key Achievements.
 
-2. **Write outcomes, not activities.** "Payment database schema and Shopify webhooks shipped" – not "Worked on payment flow".
+2. **Write outcomes, not outputs.** Open each bullet with the business state change, then the work that caused it. "Unblocked the B2B payment launch – payment schema and Shopify webhooks shipped" – not "Worked on payment flow" and not just "Payment schema and webhooks shipped". Artifacts (dashboards, PRDs, launches) are means; readers scan for consequences (revenue created, risk cut, readiness reached).
+
+2a. **Never promote targets to results.** A goal ("90% seat activation") is not an achievement until it's hit. Report targets as targets and results as results.
 
 3. **Attribute by ticket, not by person.** The report covers the team. Don't split sections by individual.
 
