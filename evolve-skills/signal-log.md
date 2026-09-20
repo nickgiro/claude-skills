@@ -61,7 +61,7 @@
 
 ### zero-to-one-judge-intuition-not-data
 - status: active
-- note: HELD this run — review-strategy already has 3 open, unactioned PRs (#9, #10, #12) from 2026-05-17. Adding a 4th closely-related PR (this mirrors conditions-vs-hypotheses) onto an unreviewed queue is low-value noise. Propose once the existing review-strategy queue clears or a 2nd converging source lands.
+- note: HELD 2026-06-22 and 2026-09-20 — review-strategy already has 3 open, unactioned PRs (#9, #10, #12) from 2026-05-17. Adding a 4th closely-related PR (this mirrors conditions-vs-hypotheses) onto an unreviewed queue is low-value noise. Propose once the existing review-strategy queue clears or a 2nd converging source lands.
 - occurrences:
   - 2026-06-22 | feedback_zero_to_one_intuition_not_data.md | "On 0-1 product work, don't demand data/evidence for problem statements — judge whether the intuition is explicit, ownable, and falsifiable-after-launch. Drop critiques that demand frequency/prevalence/evidence."
 
@@ -96,18 +96,21 @@
 
 ### never-read-env-files-without-permission
 - status: active
+- note: HELD 2026-09-20 — single source, no skill match; belongs in global ~/.claude/CLAUDE.md (outside this repo). No PR opened; queue already has 7 unreviewed drafts.
 - note: candidate for global ~/.claude/CLAUDE.md addition (engineering safety rule, not skill-specific)
 - occurrences:
   - 2026-05-03 | feedback_env_files.md | "Never read .env files without explicit permission – they contain secrets"
 
 ### practical-objections-in-strategic-conversations
 - status: active
+- note: HELD 2026-09-20 — single source, no skill match; belongs in global ~/.claude/CLAUDE.md (outside this repo). No PR opened; queue already has 7 unreviewed drafts.
 - note: candidate for global ~/.claude/CLAUDE.md addition (general behavior, not skill-specific)
 - occurrences:
   - 2026-05-03 | feedback_dont_match_register.md | "Don't let philosophical/strategic register filter out practical objections like cost, feasibility, or data gaps – those are often the most important"
 
 ### search-before-fabricating-empirical-claims
 - status: active
+- note: HELD 2026-09-20 — single source, no skill match; belongs in global ~/.claude/CLAUDE.md (outside this repo). No PR opened; queue already has 7 unreviewed drafts.
 - note: candidate for global ~/.claude/CLAUDE.md addition (general behavior, not skill-specific)
 - occurrences:
   - 2026-05-03 | feedback_verify_before_fabricate.md | "Never invent estimates/numbers when a web search could ground them – fabricated numbers passed the smell test but were baseless"
